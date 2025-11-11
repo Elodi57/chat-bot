@@ -1,0 +1,10 @@
+-- Limpieza completa del sistema de chat
+SET FOREIGN_KEY_CHECKS = 0;
+
+DELETE FROM messages;
+ALTER TABLE messages AUTO_INCREMENT = 1;
+
+DELETE FROM chats;
+ALTER TABLE chats AUTO_INCREMENT = 1;
+
+SET FOREIGN_KEY_CHECKS = 1;
