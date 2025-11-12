@@ -23,9 +23,9 @@ en tiempo real, integrando frontend, backend y base de datos.
 
 ## ¿Como se inicializa?
 *Requisitos previos*
-Antes de comenzar, asegurate de tener instalados:
 - Node.js (para ejecutar el servidor y el cliente)
 - XAMPP (para usar Apache y MySQL)
+- npm (para ejecutar comandos)
 
 *Pasos de instalación*
 1. Descargá el proyecto como ZIP y descomprimilo en tu computadora.
