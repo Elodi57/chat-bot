@@ -22,13 +22,22 @@ en tiempo real, integrando frontend, backend y base de datos.
 - *Base de datos:* MySQL en XAMPP
 
 ## ¿Como se inicializa?
+*Requisitos previos*
+Antes de comenzar, asegurate de tener instalados:
+- Node.js (para ejecutar el servidor y el cliente)
+- XAMPP (para usar Apache y MySQL)
 
-1. Clona el repositorio.
-2. Abre XAMPP e inicializa Apache y MySQL
-3. Entra al "admin" del MySQL
-4. Entra al apartado de SQL y pega el codigo que se
-encuentra en el archivo "SQL - create database.txt"
-5. 
+*Pasos de instalación*
+1. Descargá el proyecto como ZIP y descomprimilo en tu computadora.
+2. Abrí XAMPP y activá los servicios Apache y MySQL.
+3. Ingresá al panel de administración de MySQL (botón Admin en XAMPP).
+4. En la pestaña SQL, copiá y pegá el contenido del archivo "SQL - create database.txt", luego ejecutalo para crear la base de datos.
+5. Abrí la consola (CMD) y, usando el comando cd, navegá hasta la carpeta server del proyecto.
+6. Una vez allí, ejecutá npm install para descargar todas las dependencias necesarias.
+7. Iniciá el servidor con el comando npm run dev.
+8. En otra consola, usá nuevamente cd para entrar a la carpeta client del proyecto.
+9. Dentro del cliente, ejecutá npm run dev para iniciar la parte visual (frontend).
+10. Por último, abrí en tu navegador la dirección que aparece en la consola (por ejemplo, http://localhost:5173) y comenzá a usar ClimaBot.
 
 ## Autores
 Proyecto desarrollado por Emilio Lodi y Juan Giaveno como trabajo práctico de Base de Datos II.
