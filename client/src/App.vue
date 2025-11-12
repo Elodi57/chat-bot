@@ -24,7 +24,6 @@
       </aside>
 
       <main class="main">
-        <!-- ✅ Chat con scroll independiente -->
         <ChatView
           v-if="currentChatId"
           :chatId="currentChatId"
@@ -95,15 +94,14 @@ export default {
 <style scoped>
 .app {
   font-family: 'Inter', Arial, sans-serif;
-  height: 100vh; /* ocupa toda la pantalla */
+  height: 100vh;
   display: flex;
   flex-direction: column;
   background: linear-gradient(135deg, #fafdff, #f3f6fb);
   color: #0b1530;
-  overflow: hidden; /* ✅ sin scroll global */
+  overflow: hidden;
 }
 
-/* HEADER */
 .header {
   background: linear-gradient(90deg, #27A2DB, #1a8ac4);
   color: white;
@@ -157,14 +155,13 @@ export default {
   box-shadow: 0 0 6px #ef4444;
 }
 
-/* CONTENEDOR PRINCIPAL */
 .container {
   flex: 1;
   display: grid;
   grid-template-columns: 260px 1fr 280px;
   gap: 16px;
   padding: 16px;
-  overflow: hidden; /* ✅ el contenido no se desplaza globalmente */
+  overflow: hidden;
 }
 
 /* PANELES */
@@ -185,14 +182,12 @@ export default {
   box-shadow: 0 5px 14px rgba(0, 0, 0, 0.1);
 }
 
-/* ✅ SCROLL SOLO EN EL CHAT */
 .chat-scroll {
   flex: 1;
   height: 100%;
   overflow-y: auto;
 }
 
-/* SCROLL PERSONALIZADO */
 ::-webkit-scrollbar {
   width: 8px;
 }

@@ -18,7 +18,6 @@
     </ul>
   </div>
 
-  <!-- MODAL GLOBAL -->
   <teleport to="body">
     <div v-if="showModal" class="modal-overlay" @click.self="closeModal">
       <div class="modal">

@@ -1,7 +1,6 @@
 <!-- client/src/components/ChatView.vue -->
 <template>
   <div class="chat-view">
-    <!-- Área del chat con scroll -->
     <div class="chat-scroll">
       <div class="messages" ref="messagesEl">
         <div
@@ -17,12 +16,11 @@
       </div>
     </div>
 
-    <!-- Input -->
     <div class="composer">
       <input
         v-model="text"
         @keyup.enter="send"
-        placeholder='Ej: "¿Cómo está el tiempo en Buenos Aires?"'
+        placeholder='Ej: "¿Cómo está el tiempo en San Francisco?"'
       />
       <button @click="send">Enviar</button>
     </div>
@@ -42,7 +40,6 @@ export default {
     const text = ref("");
     const messagesEl = ref(null);
 
-    // Scroll suave hacia abajo
     function scrollBottom() {
       nextTick(() => {
         if (messagesEl.value) {
@@ -154,19 +151,17 @@ export default {
 .chat-view {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Toda la pantalla */
+  height: 100vh;
   background: linear-gradient(180deg, #ffffff, #f5fbff);
   border-radius: 10px;
 }
 
-/* Contenedor que tiene el scroll */
 .chat-scroll {
   flex: 1;
   overflow-y: auto;
   padding: 14px;
 }
 
-/* Área donde se renderizan los mensajes */
 .messages {
   display: flex;
   flex-direction: column;
