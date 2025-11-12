@@ -19,7 +19,7 @@ en tiempo real, integrando frontend, backend y base de datos.
 - *Backend:* Node.js, Express  
 - *Comunicación en tiempo real:* Socket.io
 - *API Utilizada:* OpenWeatherMap
-- *Base de datos:* MySQL  
+- *Base de datos:* MySQL en XAMPP
 
 ## Autores
 Proyecto desarrollado por Emilio Lodi y Juan Giaveno como trabajo práctico de Base de Datos II.
