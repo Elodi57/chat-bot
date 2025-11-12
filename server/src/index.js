@@ -17,7 +17,6 @@ const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => res.send('TP Clima Bot server running'));
 
-// ---------- DB ----------
 async function createChatIfNotExists(chatName = 'Chat') {
   const [rows] = await pool.query('SELECT id FROM chats WHERE name = ? LIMIT 1', [chatName]);
   if (rows.length) return rows[0].id;
@@ -40,7 +39,6 @@ async function loadMessages(chat_id) {
   return rows;
 }
 
-// ---------- REST ----------
 app.post('/api/chats', async (req, res) => {
   try {
     const { name } = req.body;
@@ -58,14 +56,12 @@ app.get('/api/chats', async (req, res) => {
   res.json(rows);
 });
 
-// ---------- SOCKET.IO ----------
 io.on('connection', (socket) => {
   console.log('Client connected', socket.id);
 
     socket.on('join_chat', async ({ chatId, chatName }) => {
     let finalChatId = chatId;
 
-    // ⚙️ Si se manda chatId → lo usamos directamente
     if (finalChatId) {
         const msgs = await loadMessages(finalChatId);
         socket.join(`chat_${finalChatId}`);
@@ -73,7 +69,6 @@ io.on('connection', (socket) => {
         return;
     }
 
-    // 🆕 Si no se manda chatId (nuevo chat desde el frontend)
     const [r] = await pool.query('INSERT INTO chats (name) VALUES (?)', [chatName || 'Chat']);
     finalChatId = r.insertId;
 
@@ -127,7 +122,7 @@ io.on('connection', (socket) => {
       io.to(`chat_${chatId}`).emit('bot_message', { chatId, text: reply });
 
     } catch (err) {
-      console.error('❌ Error al consultar OpenWeatherMap:', err.response?.data || err.message);
+      console.error('Error al consultar OpenWeatherMap:', err.response?.data || err.message);
       const msg = 'Perdón, hubo un error consultando el clima. Intentá de nuevo más tarde.';
       await saveMessage(chatId, 'bot', msg, { error: true });
       io.to(`chat_${chatId}`).emit('bot_message', { chatId, text: msg });

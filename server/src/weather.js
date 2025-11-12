@@ -12,7 +12,6 @@ function normalize(text) {
     .trim();
 }
 
-// 🌎 Solo Argentina
 async function geocodeCity(cityInput) {
   if (!cityInput) return null;
   const clean = normalize(cityInput);
